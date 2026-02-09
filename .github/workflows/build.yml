@@ -28,14 +28,9 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Upload artifacts
+    - name: Upload shaded artifact
       uses: actions/upload-artifact@v4
       with:
-        name: nightcore-artifacts
-        path: |
-          main/target/*.jar
-          bridge/target/*.jar
-          utils/target/*.jar
-          spigot/target/*.jar
-          paper/target/*.jar
-        if-no-files-found: warn
+        name: nightcore
+        path: target/*.jar
+        if-no-files-found: error
