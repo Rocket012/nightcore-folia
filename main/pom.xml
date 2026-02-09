@@ -228,12 +228,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- BeastTokens dependency commented out - not available in public Maven repos
         <dependency>
             <groupId>me.mraxetv.beasttokens</groupId>
             <artifactId>BeastTokens</artifactId>
             <version>3.11.1</version>
             <scope>provided</scope>
         </dependency>
+        -->
 
         <dependency>
             <groupId>com.bencodez</groupId>
