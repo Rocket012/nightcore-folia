@@ -88,14 +88,14 @@ public class FoliaScheduler implements AdaptedScheduler {
     @Override
     @NotNull
     public FoliaScheduledTask runTaskTimer(@NotNull Runnable runnable, long delay, long period) {
-        return new FoliaScheduledTask(this.globalRegionScheduler.runAtFixedRate(this.plugin, task -> runnable.run(), fixDelay(delay), period));
+        return new FoliaScheduledTask(this.globalRegionScheduler.runAtFixedRate(this.plugin, task -> runnable.run(), fixDelay(delay), fixDelay(period)));
     }
 
     @Override
     @NotNull
     public FoliaScheduledTask runTaskTimerAsync(@NotNull Runnable runnable, long delay, long period) {
         long delayMs = fixDelay(ticksToMillis(delay));
-        long periodMs = ticksToMillis(period);
+        long periodMs = fixDelay(ticksToMillis(period));
 
         return new FoliaScheduledTask(this.asyncScheduler.runAtFixedRate(this.plugin, task -> runnable.run(), delayMs, periodMs, TimeUnit.MILLISECONDS));
     }
